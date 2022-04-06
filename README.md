@@ -7,7 +7,7 @@ There is also log analytics enabled to monitor the AKS Cluster deployments.
 For more details on Terraform : https://www.terraform.io/
 
 
-![AKS-AAD-TF](/)
+![AKS-AAD-TF](/aksaad.png)
 
 
 ## What is deployed ?
@@ -30,7 +30,7 @@ Application container deployed to print User-Agent Info
 * [`Python`](https://www.python.org/downloads/) Refer the link
 * [`Docker`](https://docs.docker.com/engine/install/) Refer the link
 * [`terraform`](https://learn.hashicorp.com/tutorials/terraform/install-cli) required for `terraform deploy`.
-* [`kubectl`](https://kubernetes.io/docs/tasks/tools/)
+* [`kubectl`](https://kubernetes.io/docs/tasks/tools/) Refer the link
 
 ## Requirements
 
