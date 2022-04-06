@@ -91,3 +91,45 @@ terraform apply
 
 terraform destroy
 ```
+
+## Access the Cluster
+Make sure that Users are created in AD and mapped to the respective AD Groups for the Azure RBAC and Kubernetes RBAC to work like a charm.
+
+Get the cluster credentials
+```
+$ az aks get-credentials --resource-group <RESOURCE_GROUP> -n <CLUSTER_NAME>
+```
+Run the kubectl commands for the client to authenticate to the Kubernetes API via AD. 
+
+```
+$ kubectl get nodes
+To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code DP9JA76WS to authenticate.
+
+```
+Error from server (Forbidden): nodes is forbidden: User "593736cb-1f95-4f23-bfbd-75891886b05f" cannot list resource "nodes" in API group "" at the cluster scope
+
+Great! Expected error as Kubernetes cluter has insufficient permissions at Kube RBAC level.
+
+Now, Add the Group ID (Object ID) obtained from AD Groups to the Rolebindings of the yaml file located under Kube-manifests directory. 
+
+Ex: SRE Group ID should be added to Cluster Role Binding and SRE role binding yaml files as shown
+
+```
+- kind: Group
+  name: 2b59f902-709b-475c-940d-6d60499a6f02 # "name" is case sensitive
+  apiGroup: rbac.authorization.k8s.io
+```
+Same goes with Developer Group ID to Dev role binding yaml files to refelct the correct RBAC permissions set for the users groups.
+
+Use the below credentials to deploy the Kubernetes manifests using your administrative priviledges
+
+```
+$ az aks get-credentials --resource-group <RESOURCE_GROUP> -n <CLUSTER_NAME> --overwrite-existing --admin
+
+kubectl create -f kube-manifests/
+
+```
+After kubernetes manifests deployments, try running the kubect commands using different user clients (SRE and Developer) to see the access restrictions for the Kubernetes API's or Clusters
+
+
+
