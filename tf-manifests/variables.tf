@@ -34,14 +34,6 @@ variable "win_admin_password" {
   default = "P@ssw0rd19800402"
 }
 
-# variable "client_app_id" {
-#   description = "The Client app ID of the AKS client application"
-# }
-
-# variable "client_app_secret" {
-#   description = "The secret created for AKS server application"
-# }
-
 variable "prefix" {
   default = "aks-project-cluster"
 }
@@ -50,40 +42,14 @@ variable "address_space" {
   default = "10.101.0.0/16"
 }
 
-# variable "server_app_id" {
-#   description = "AKS Client App ID"
-# }
-
-# variable "serverappid" {
-#   description = "AKS Server app id"
-# }
-
-# variable "serverappsecret" {
-#   description = "AKS Server Secret"
-# }
-
-# variable "tenantid" {
-#   description = "Azure Tenant id"
-# }
-
-variable "resource_id" {
-  type    = list(string)
-  default = ["00000003-0000-0000-c000-000000000000", "00000002-0000-0000-c000-000000000000"]
-}
-
-variable "scopes" {
-  type    = list(string)
-  default = ["User.Read", "Directory.Read.All", "user_impersonation"]
-}
-
 variable "homepage_url" {
-  default = "https://gopikrishna83gmail.onmicrosoft.com"
+  default = "https://gopikrishna83gmail.onmicrosoft.com" # use your verified domain
 }
 
 variable "identifier_uris" {
-  default = ["https://gopikrishna83gmail.onmicrosoft.com"]
+  default = ["https://gopikrishna83gmail.onmicrosoft.com"] # use your verified domain
 }
 
 variable "redirect_uris" {
-  default = ["https://gopikrishna83gmail.onmicrosoft.com/"]
+  default = ["https://gopikrishna83gmail.onmicrosoft.com/"] # use your verified domain
 }
