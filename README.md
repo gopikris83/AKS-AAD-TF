@@ -30,7 +30,7 @@ Application container deployed to print User-Agent Info
 * [`Python`](https://www.python.org/downloads/) Refer the link
 * [`Docker`](https://docs.docker.com/engine/install/) Refer the link
 * [`terraform`](https://learn.hashicorp.com/tutorials/terraform/install-cli) required for `terraform deploy`.
-* [`kubectl'] (https://kubernetes.io/docs/tasks/tools/)
+* [`kubectl`] (https://kubernetes.io/docs/tasks/tools/)
 
 ## Requirements
 
@@ -73,7 +73,7 @@ Under AKSAADServer1 blade --> Manifests
 
 * Create Users for AD Groups (SRE and Developer). Add these users under respective groups. 
 
-For more information - [`user creation'](https://docs.microsoft.com/en-us/troubleshoot/windows-server/identity/create-an-active-directory-server)
+For more information - [`AD user creation`](https://docs.microsoft.com/en-us/troubleshoot/windows-server/identity/create-an-active-directory-server)
 
 * Init/Plan/Apply
 
